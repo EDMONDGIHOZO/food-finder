@@ -12,7 +12,7 @@ function MainStack() {
         name="food-search"
         component={SearchScreen}
         options={({ navigation }) => ({
-          title: "find food",
+          title: "find makeup brands",
           headerStyle: { backgroundColor: "#F2C94C" },
           headerTitleAlign: "center"
         })}

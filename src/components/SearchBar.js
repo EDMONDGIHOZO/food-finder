@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-const SearchBar = ({ term, onTermChange }) => {
+const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   return (
     <View style={styles.searchBar}>
       <Ionicons name="ios-search-circle" style={styles.sicon} />
@@ -11,7 +11,8 @@ const SearchBar = ({ term, onTermChange }) => {
         autoCorrect={false}
         placeholder="search words here"
         value={term}
-        onChangeText={(newTerm) => onTermChange(newTerm)}
+        onChangeText={onTermChange}
+        onEndEditing={onTermSubmit}
         // know if the user done typing
       />
     </View>
