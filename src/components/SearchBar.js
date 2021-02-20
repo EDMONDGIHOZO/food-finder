@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     flexDirection: "row",
     marginHorizontal: 15,
+    marginTop: 10
   },
 
   sicon: {

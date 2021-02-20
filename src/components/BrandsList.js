@@ -1,11 +1,39 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
+import ProductCard from "./ProductCard";
+import { withNavigation } from "@react-navigation/compat";
 
-const BrandsList = ({ title, products }) => {
+const BrandsList = ({ title, products, navigation }) => {
+  if (!products.length) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}> {title} </Text>
-      <Text style={styles.title}> {products.length} </Text>
+      <FlatList
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        data={products}
+        keyExtractor={(product) => product.id.toString()}
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("ProductView", { id: item.id })
+              }
+            >
+              <ProductCard product={item} />
+            </TouchableOpacity>
+          );
+        }}
+      />
     </View>
   );
 };
@@ -23,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BrandsList;
+export default withNavigation(BrandsList);

@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import SearchScreen from "./src/screens/SearchScreen";
+import ProductView from "./src/screens/productView";
 
 const Stack = createStackNavigator();
 
@@ -14,7 +15,15 @@ function MainStack() {
         options={({ navigation }) => ({
           title: "find makeup brands",
           headerStyle: { backgroundColor: "#F2C94C" },
-          headerTitleAlign: "center"
+          headerTitleAlign: "center",
+        })}
+      />
+      <Stack.Screen
+        name="ProductView"
+        component={ProductView}
+        options={({ navigation }) => ({
+          title: "Product View",
+          headerTitleAlign: "center",
         })}
       />
     </Stack.Navigator>
